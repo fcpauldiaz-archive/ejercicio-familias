@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nueva Familia</title>
+
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+  <h1>Familias:</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ familia_form }}
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>
