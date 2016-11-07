@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>New Person</title>
+{% endblock %}
+
+  {% block body %}
+  <h1>Familias:</h1>
+  <form method="POST">
+    {% csrf_token %}
+     <table>
+        {{ formset }}
+    </table>
+    <button type="submit">Guardar</button>
+  </form>
+{% endblock %}

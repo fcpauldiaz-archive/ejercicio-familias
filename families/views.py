@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from families.models import Persona, Familia
 from families.forms import FamiliaForm, PersonaForm
+from django.forms import formset_factory
+
 def index(request):
 
     families = Familia.objects.all()
@@ -108,7 +110,27 @@ def edit_person(request, persona_id):
             'message': message
         }
     )
+def formset_familia(request):
+    FamiliaFormSet = formset_factory(FamiliaForm, extra=5)
+    familia_formset = FamiliaFormSet()
+    return render(
+        request,
+        'families/familia_formset.html',
+        {
+            'formset': familia_formset
+        }
+    )
 
+def formset_person(request):
+    PersonFormSet = formset_factory(PersonaForm, extra=5)
+    person_formset = PersonFormSet()
+    return render(
+        request,
+        'families/person_formset.html',
+        {
+            'formset': person_formset
+        }
+    )
 # Personas
 # Listado
 # detalle
