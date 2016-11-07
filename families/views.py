@@ -88,7 +88,7 @@ def edit_person(request, persona_id):
     persona = Persona.objects.get(pk=persona_id)
     message = ''
     if request.method == 'GET':
-        person_form = PersonaForm(initial=persona)
+        person_form = PersonaForm(instance=persona)
 
     elif request.method == 'POST':
         person_form = PersonaForm(request.POST)
@@ -102,7 +102,7 @@ def edit_person(request, persona_id):
 
     return render(
         request,
-        'families/edit_person.html',
+        'families/person_edit.html',
         {
             'person_form': person_form,
             'message': message
