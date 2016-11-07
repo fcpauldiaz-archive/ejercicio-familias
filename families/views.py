@@ -1,8 +1,7 @@
 from django.shortcuts import render
 
-from families.models import Familia
-from families.forms import FamiliaForm
-
+from families.models import Persona, Familia
+from families.forms import FamiliaForm, PersonaForm
 def index(request):
 
     families = Familia.objects.all()

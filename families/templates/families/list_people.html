@@ -15,17 +15,15 @@
       <th>Acciones</th>
     </thead>
   {% for persona in people %}
-    {# <div class="family"> #}
 
     <tr>
       <td>{{ persona.nombre }}</td>
       <td>{{ persona.apellido }}</td>
       <td>{{ persona.edad }}</td>
-      <td>{{ persona.familia }}</h2>
+      <td>{{ persona.familia }}</td>
 
       <td><p><a href="{% url 'families_edit_person' persona.pk %}">Editar</a></p></td>
     </tr>
-    {# </div> #}
   {% endfor %}
   </table>
 {% endblock %}
