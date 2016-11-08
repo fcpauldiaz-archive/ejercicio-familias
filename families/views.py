@@ -86,7 +86,7 @@ def new_person(request):
     )
 
 
-def edit_person(request, persona_id):
+def edit_persona(request, persona_id):
     persona = Persona.objects.get(pk=persona_id)
     message = ''
     if request.method == 'GET':
@@ -112,23 +112,47 @@ def edit_person(request, persona_id):
     )
 def formset_familia(request):
     FamiliaFormSet = formset_factory(FamiliaForm, extra=5)
-    familia_formset = FamiliaFormSet()
+    message = ''
+    if request.method == 'GET':
+        familia_formset = FamiliaFormSet()
+    elif request.method == 'POST':
+        familia_formset = FamiliaFormSet(request.POST)
+        for form in familia_formset:
+            if form.is_valid():
+                form.save()
+        familia_formset = FamiliaFormSet()
+        message = 'Se ha guardado exitosamente'
+
+  
+    
     return render(
         request,
         'families/familia_formset.html',
         {
-            'formset': familia_formset
+            'formset': familia_formset,
+            'message': message
         }
     )
 
-def formset_person(request):
+def formset_persona(request):
     PersonFormSet = formset_factory(PersonaForm, extra=5)
-    person_formset = PersonFormSet()
+    message = ''
+    if request.method == 'GET':
+        persona_formset = PersonFormSet()
+    elif request.method == 'POST':
+        persona_formset = PersonFormSet(request.POST)
+        for form in persona_formset:
+            if form.is_valid():
+                form.save()
+        persona_formset = PersonFormSet()
+        message = 'Se ha guardado exitosamente'
+
     return render(
         request,
-        'families/person_formset.html',
+        'families/persona_formset.html',
         {
-            'formset': person_formset
+            'formset': persona_formset,
+            'message': message
         }
     )
 # Personas

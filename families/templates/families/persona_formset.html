@@ -5,7 +5,7 @@
 {% endblock %}
 
   {% block body %}
-  <h1>Familias:</h1>
+  <h1>Crear varias personas</h1>
   <form method="POST">
     {% csrf_token %}
      <table>
@@ -13,4 +13,5 @@
     </table>
     <button type="submit">Guardar</button>
   </form>
+  {{message}}
 {% endblock %}

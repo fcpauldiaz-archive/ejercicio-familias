@@ -15,7 +15,7 @@ urlpatterns = [
         families_views.new_family,
         name='families_new'),
      url(
-        r'^new_formset/$',
+        r'^multiple/familia/$',
         families_views.formset_familia,
         name='families_new_formset'),
     url(
@@ -27,12 +27,12 @@ urlpatterns = [
         families_views.new_person,
         name='families_new_person'),
     url(
-        r'^person_formset/$',
-        families_views.formset_person,
-        name="families_new_person_formset"
+        r'^multiple/persona/$',
+        families_views.formset_persona,
+        name="families_new_persona_formset"
     ),
     url(
         r'^(?P<persona_id>[0-9]+)/edit_person/$',
-        families_views.edit_person,
+        families_views.edit_persona,
         name='families_edit_person'),
 ]
