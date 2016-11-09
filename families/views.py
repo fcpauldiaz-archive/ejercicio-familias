@@ -96,9 +96,12 @@ def edit_persona(request, persona_id):
         person_form = PersonaForm(request.POST)
         message = "Persona exitosamente guardada"
         if person_form.is_valid():
-            person_form.save()
-            person_form = PersonaForm()
-
+            persona.nombre = person_form.instance.nombre
+            persona.apellido = person_form.instance.apellido
+            persona.edad = person_form.instance.edad
+            persona.famila = person_form.instance.familia
+            persona.save()
+            print persona
     else:
         pass
 
